@@ -21,21 +21,25 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 "=============settings===========
-set nu
 colorscheme jellybeans
+set nu
+syntax on
 set cursorline
 set hlsearch
-filetype on
-syntax on
 set history=1000
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8
 "set noswapfile
-"set autoindent
+filetype plugin indent on
+set smarttab
+set smartindent
 set shiftwidth=2
 set tabstop=4
 set expandtab
+" mkdir on edit if needed
+" <href=http://vim.wikia.com/wiki/Mkdir_on_edit_if_needed>
+au BufNewFile * :exe ': !mkdir -p ' . escape(fnamemodify(bufname('%'),':p:h'),'#% \\')
 
 "-----NERD-tree------------------------------------------------
 map <F2> :NERDTree <CR>
