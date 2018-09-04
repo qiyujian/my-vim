@@ -16,14 +16,15 @@ Plugin 'fholgado/minibufexpl.vim'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'google/yapf', { 'rtp': 'plugins/vim' }
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 "=============settings===========
 colorscheme jellybeans
-set nu
 syntax on
+"set nu
 set cursorline
 set hlsearch
 set history=1000
@@ -37,9 +38,13 @@ set smartindent
 set shiftwidth=2
 set tabstop=4
 set expandtab
+
 " mkdir on edit if needed
 " <href=http://vim.wikia.com/wiki/Mkdir_on_edit_if_needed>
 au BufNewFile * :exe ': !mkdir -p ' . escape(fnamemodify(bufname('%'),':p:h'),'#% \\')
+
+" set backspace key work
+set backspace=indent,eol,start
 
 "-----NERD-tree------------------------------------------------
 map <F2> :NERDTree <CR>
@@ -97,4 +102,8 @@ let g:ycm_semantic_triggers =  {
 "====================ycm==========
 map <C-Y> :call yapf#YAPF()<cr>
 imap <C-Y> :call yapf#YAPF()<cr> 
+
+
+"================= vim-tmux-navigator ==========
+let g:tmux_navigator_save_on_switch = 2
 
