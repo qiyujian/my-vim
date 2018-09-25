@@ -50,6 +50,32 @@ cp YouCompleteMe .vim/bundle
 cd ~ && mkdir ycm_build && cd ycm_build
 cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=on . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
 cmake --build . --target ycm_core
+# copy libclang-6-0 to ~/.vim/bundle/YouCompleteMe/third_party/ycmd
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clang-completer
+cd ~
+
+# docker
+sudo yum update
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install -y docker-ce
+yum-config-manager --enable docker-ce-edge
+yum-config-manager --enable docker-ce-test
+# should relogin avoid sudo before docker
+sudo usermod -aG docker yujian 
+sudo systemctl start docker
+# test
+docker run hello-wrold
+
+# install flask in python virtualenv
+pip install Flask
+pip install redis
+pip install waitress
+pip install slacker
+
+
+
 
 
 
