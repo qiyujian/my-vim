@@ -9,7 +9,6 @@ call vundle#begin('~/.vim/bundle/')
 "==================plugin===============
 Plugin 'VundleVim/Vundle.vim'    " let Vundle manage Vundle, required
 Plugin 'L9'
-Plugin 'The-NERD-tree'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'fholgado/minibufexpl.vim'
@@ -38,6 +37,7 @@ set smartindent
 set shiftwidth=2
 set tabstop=4
 set expandtab
+set ruler
 
 " mkdir on edit if needed
 " <href=http://vim.wikia.com/wiki/Mkdir_on_edit_if_needed>
@@ -45,13 +45,6 @@ au BufNewFile * :exe ': !mkdir -p ' . escape(fnamemodify(bufname('%'),':p:h'),'#
 
 " set backspace key work
 set backspace=indent,eol,start
-
-"-----NERD-tree------------------------------------------------
-map <F2> :NERDTree <CR>
-map <F2> :NERDTreeToggle <CR>
-:let g:NERDTreeWinSize=5
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == /"primary") | q | endif
-"autocmd vimenter * NERDTree
 
 "---------tagbar----------------------------------------------
 "Bundle 'majutsushi/tagbar'
@@ -107,3 +100,6 @@ imap <C-Y> :call yapf#YAPF()<cr>
 "================= vim-tmux-navigator ==========
 let g:tmux_navigator_save_on_switch = 2
 
+"======== limit 80 columns in a line
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
