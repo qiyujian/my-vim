@@ -74,9 +74,3 @@ pip install redis
 pip install waitress
 pip install slacker
 
-
-
-
-
-
-
