@@ -17,6 +17,17 @@ cd ~
 # git
 sudo yum install git
 
+# install tmux
+sudo yum install ncurses-devel
+sudo yum install libevent-devel
+wget https://github.com/tmux/tmux/releases/download/2.8/tmux-2.8.tar.gz
+tar xzvf tmux-2.8.tar.gz
+cd tmux-2.8
+./configure --prefix=/usr
+make
+sudo make install
+cd ~
+
 # python-devel
 sudo yum install python-devel
 
@@ -34,7 +45,7 @@ virtualenv .
 cd ~
 
 # vim
-sudo yum install ncurses-devel
+# install vim according to ycm
 git clone https://github.com/vim/vim.git
 cd vim/src
 # if you build Vim before
@@ -44,6 +55,7 @@ sudo make install
 cd ~
 
 # ycm
+# download libclang from http://dl.bintray.com/micbou/libclang/
 git clone https://github.com/Valloric/YouCompleteMe.git
 mkdir -p .vim/bundle
 cp YouCompleteMe .vim/bundle
@@ -63,7 +75,7 @@ sudo yum install -y docker-ce
 yum-config-manager --enable docker-ce-edge
 yum-config-manager --enable docker-ce-test
 # should relogin avoid sudo before docker
-sudo usermod -aG docker yujian 
+sudo usermod -aG docker yujian
 sudo systemctl start docker
 # test
 docker run hello-wrold
