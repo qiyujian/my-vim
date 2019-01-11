@@ -12,8 +12,8 @@ Plugin 'L9'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'fholgado/minibufexpl.vim'
-Plugin 'rhysd/vim-clang-format'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'rhysd/vim-clang-format'
 Plugin 'google/yapf', { 'rtp': 'plugins/vim' }
 
 call vundle#end()            " required
@@ -423,15 +423,8 @@ map <F7> :MBEbp<CR>
 map <F8> :MBEbn<CR>
 
 "=========clang-format================
-" map to <Leader>cf in C++ code
-autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>
-" if you install vim-operator-user
-"autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
-" Toggle auto formatting:
-"nmap <Leader>C :ClangFormatAutoToggle<CR>
-"autocmd FileType c,cc,cpp,h ClangFormatAutoEnable
-"
+autocmd FileType f,cpp,objc nnoremap <buffer><Leader>f :ClangFormat<CR>
+autocmd FileType f,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>
 
 " =======================ycm==========
 let g:ycm_autoclose_preview_window_after_completion = 1
