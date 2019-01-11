@@ -59,13 +59,14 @@ cd ~
 git clone https://github.com/Valloric/YouCompleteMe.git
 mkdir -p .vim/bundle
 cp YouCompleteMe .vim/bundle
-cd ~ && mkdir ycm_build && cd ycm_build
-cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=on . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
-cmake --build . --target ycm_core
-# copy libclang-6-0 to ~/.vim/bundle/YouCompleteMe/third_party/ycmd
+# copy libclang-6-0 to ~/.vim/bundle/YouCompleteMe/third_party/ycmd/clang_archives
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 cd ~
+
+# clang-format
+cd ~
+clang-format -style=llvm -dump-config > .clang-format
 
 # docker
 sudo yum update
