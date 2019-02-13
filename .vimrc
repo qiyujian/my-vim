@@ -1,4 +1,4 @@
-"======= vundle ================================================
+"======= vundle ========================
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -52,6 +52,9 @@ call vundle#end()            " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
 set history=500
+
+" Set timeout
+set timeout timeoutlen=3000 ttimeoutlen=100
 
 " Enable filetype plugins
 filetype plugin on
@@ -402,17 +405,18 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
-"---------tagbar----------------------------------------------
+
+"=========tagbar=====================
 "Bundle 'majutsushi/tagbar'
 "nmap <Leader>tb :TagbarToggle<CR>      "快捷键设置
 let g:tagbar_ctags_bin='ctags'          "ctags程序的路径
 let g:tagbar_width=10                   "窗口宽度的设置
 map <F3> :Tagbar<CR>
 
-"-------ctags---------------------------------------------------
+"=======ctags========================
 map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>:set tags+=tags<CR>
 
-"--------minibufexpl-----------------
+"========minibufexpl=================
 "Bundle 'fholgado/minibufexpl.vim'
 let g:miniBufExplMapWindowNavVim = 1   
 let g:miniBufExplMapWindowNavArrows = 1   
@@ -423,11 +427,11 @@ let g:miniBufExplMoreThanOne=0
 map <F7> :MBEbp<CR>
 map <F8> :MBEbn<CR>
 
-"=========clang-format================
+"=========clang-format==============
 autocmd FileType f,cpp,objc nnoremap <buffer><Leader>f :ClangFormat<CR>
 autocmd FileType f,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>
 
-" =======================ycm==========
+"===========ycm=====================
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
