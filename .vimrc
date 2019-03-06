@@ -445,5 +445,4 @@ let g:ycm_semantic_triggers =  {
   \ }
 
 "====================yapf==========
-map <C-Y> :call yapf#YAPF()<cr>
-imap <C-Y> :call yapf#YAPF()<cr> 
+autocmd FileType Python nnoremap <leader>y :0,$!yapf<CR>
