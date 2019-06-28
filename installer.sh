@@ -58,8 +58,7 @@ cd ~
 # download libclang from http://dl.bintray.com/micbou/libclang/
 git clone https://github.com/Valloric/YouCompleteMe.git
 mkdir -p .vim/bundle
-cp YouCompleteMe .vim/bundle
-# copy libclang-6-0 to ~/.vim/bundle/YouCompleteMe/third_party/ycmd/clang_archives
+cp -r YouCompleteMe .vim/bundle
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 cd ~
